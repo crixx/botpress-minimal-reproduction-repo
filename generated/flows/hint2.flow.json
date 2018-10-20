@@ -1,0 +1,133 @@
+{
+  "version": "0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "event.nlu.intent.is('forget')",
+        "node": "forget-my-name"
+      },
+      {
+        "condition": "event.nlu.intent.is('start-trivia-game')",
+        "node": "start_trivia_game"
+      },
+      {
+        "condition": "event.nlu.intent.is('restart')",
+        "node": "restart-flow"
+      },
+      {
+        "condition": "event.nlu.intent.is('reset-user')",
+        "node": "reset_flow_for_user"
+      },
+      {
+        "condition": "event.nlu.intent.is('translate')",
+        "node": "choose_lang"
+      }
+    ]
+  },
+  "startNode": "start_trivia_game",
+  "nodes": [
+    {
+      "id": "ad867b5c14",
+      "name": "ask-question",
+      "next": [
+        {
+          "condition": "state.isCorrect === true",
+          "node": "good-answer"
+        },
+        {
+          "condition": "true",
+          "node": "bad-answer"
+        }
+      ],
+      "onEnter": [
+        "sendRandomQuestion {}"
+      ],
+      "onReceive": [
+        "validateAnswer {}"
+      ]
+    },
+    {
+      "id": "5cfe56ba05",
+      "name": "good-answer",
+      "next": [
+        {
+          "condition": "true",
+          "node": "next"
+        }
+      ],
+      "onEnter": [
+        "say #!text-~Y4F~Z"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "f016e429f3",
+      "name": "bad-answer",
+      "next": [
+        {
+          "condition": "true",
+          "node": "next"
+        }
+      ],
+      "onEnter": [
+        "say #!text-cTkerJ"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "b6fb408ea0",
+      "name": "next",
+      "next": [
+        {
+          "condition": "state.count >= 3",
+          "node": "over"
+        },
+        {
+          "condition": "true",
+          "node": "next-question"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null
+    },
+    {
+      "id": "7b5a064add",
+      "name": "over",
+      "next": [],
+      "onEnter": [
+        "say #!text-zss1Nr"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "26a1eab267",
+      "name": "next-question",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask-question"
+        }
+      ],
+      "onEnter": [
+        "say #!text-kFIEdO"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "4ab6614bf7",
+      "name": "start_trivia_game",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask-question"
+        }
+      ],
+      "onEnter": [
+        "say #!text-7jyHxa",
+        "startGame {}"
+      ],
+      "onReceive": null
+    }
+  ]
+}

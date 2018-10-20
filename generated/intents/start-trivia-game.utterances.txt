@@ -1,0 +1,4 @@
+play
+start game
+let the game begin
+let trivia begin

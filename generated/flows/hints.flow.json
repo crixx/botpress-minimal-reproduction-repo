@@ -1,0 +1,46 @@
+{
+  "version": "0.1",
+  "catchAll": {},
+  "startNode": "startHint-copy",
+  "nodes": [
+    {
+      "id": "d0226d9443",
+      "name": "startHint",
+      "onEnter": [
+        "setConversationVariable {\"name\":\"nextHint\",\"value\":\"hint2\",\"expiry\":\"never\"}",
+        "getConversationVariable {\"name\":\"nextHint\",\"output\":\"nextHint\"}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "state.nextHint === \"hint2\"",
+          "node": "hint2.flow.json"
+        },
+        {
+          "condition": "state.nextHint === \"hint3\"",
+          "node": "hint3.flow.json"
+        },
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ]
+    },
+    {
+      "id": "c194dd8733",
+      "name": "startHint-copy",
+      "onEnter": [
+        "setConversationVariable {\"name\":\"nextHint\",\"value\":\"hint2\",\"expiry\":\"never\"}",
+        "getConversationVariable {\"name\":\"nextHint\",\"output\":\"nextHint\"}",
+        "jumpToFlow {}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ]
+    }
+  ]
+}

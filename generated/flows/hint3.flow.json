@@ -1,0 +1,61 @@
+{
+  "version": "0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "e34e2fcb78",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-z6wC~h"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "step1"
+        }
+      ]
+    },
+    {
+      "id": "c5fdb59ba1",
+      "name": "step1",
+      "next": [
+        {
+          "condition": "true",
+          "node": "step2"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-EnC4wv"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "3005f1f358",
+      "name": "step2",
+      "next": [
+        {
+          "condition": "true",
+          "node": "cleanup"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-EW6Ha5"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "b69f4029e8",
+      "name": "cleanup",
+      "next": [
+        {
+          "condition": "true",
+          "node": "#hintCompleted"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "builtin_single-choice-nem1C9",
+    "formData": {
+      "text": "What do you want to do?",
+      "choices": [
+        {
+          "title": "Show me the hint!",
+          "value": "next"
+        },
+        {
+          "title": "Skip",
+          "value": "skip"
+        },
+        {
+          "title": "Remind me later",
+          "value": "remind"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-15T14:25:30.391Z"
+  }
+]

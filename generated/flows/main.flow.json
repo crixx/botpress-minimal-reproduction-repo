@@ -1,0 +1,51 @@
+{
+  "version": "0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "event.nlu.intent.is('forget')",
+        "node": "forget-my-name"
+      },
+      {
+        "condition": "event.nlu.intent.is('start-trivia-game')",
+        "node": "start_trivia_game"
+      },
+      {
+        "condition": "event.nlu.intent.is('restart')",
+        "node": "restart-flow"
+      },
+      {
+        "condition": "event.nlu.intent.is('reset-user')",
+        "node": "reset_flow_for_user"
+      },
+      {
+        "condition": "event.nlu.intent.is('translate')",
+        "node": "choose_lang"
+      }
+    ]
+  },
+  "startNode": "entry-main",
+  "nodes": [
+    {
+      "id": "f562e88093",
+      "name": "entry-main",
+      "next": [
+        {
+          "condition": "state.isCorrect === true",
+          "node": "hints.flow.json"
+        },
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "sendIntroQuestion {}"
+      ],
+      "onReceive": [
+        "validateAnswer {}"
+      ]
+    }
+  ]
+}

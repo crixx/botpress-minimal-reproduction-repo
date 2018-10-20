@@ -1,0 +1,29 @@
+{
+  "name": "botpress-minimal",
+  "version": "1.0.0",
+  "description": "botpress mini repro repo",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 8 < 11"
+  },
+  "dependencies": {
+    "@botpress/audience": "^10.48.5",
+    "@botpress/builtins": "^10.48.5",
+    "@botpress/channel-web": "^10.48.5",
+    "@botpress/hitl": "^10.48.5",
+    "@botpress/nlu": "^10.48.5",
+    "@botpress/skill-choice": "^10.48.5",
+    "botpress": "^10.48.5",
+    "jsdoc-api": "^4.0.3",
+    "lodash": "^4.17.10",
+    "yn": "^2.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "ghost-sync": "botpress ghost-sync",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node $NODE_DEBUG_OPTION index.js"
+  },
+  "author": "crixx",
+  "license": "AGPL-3.0-only"
+}
